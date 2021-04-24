@@ -31,16 +31,19 @@ Ideas
 	
 	. Lantern model - DONE
 	. Base cave model - DONE
-	. Create ~3 varitations or base cave and put into prefabs -
-	. Create Skeleton/dead adventurer model - 
-	. Create hand model
+	. Create Skeleton/dead adventurer model - DONE
+	. Create hand model - DONE
+	. Create lamp oil model - DONE
 	
-	//MODELLING COMPLETE BY 7PM SATURDAY
+	//MODELLING COMPLETE BY 7PM SATURDAY - (Moslty) DONE
 	
-	. Code light system -
-    . Code loot system (Light val increases when looking at dead adventurer) - 
+	
+	.Code Game manager - DONE		
+	.Code light system - DONE
+    .Code cave loading system - DONE
+	. Create ~3 varitations or base cave and put into prefabs - ~~
+    . Code loot system (Light val increases when looking at dead adventurer) - (Almost) DONE
 	. Code player death/respawn system -
-	. Code next cave segment system -
 	. Improve UI -
 	. Create main menu -
 	. Bug fixes - 

@@ -13,7 +13,7 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637548237698096811
+      ticks: 637549014165252811
     m_Hash: 728537547
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
@@ -76,8 +76,12 @@ m_PackageAssets:
         - 2.6.2
         - 2.6.3-preview.2
         - 2.6.3
+        - 2.6.4
         - 2.7.1
         - 2.7.2
+        - 2.7.3
+        - 2.8.0-exp.1
+        - 2.8.0-exp.2
         compatible:
         - 2.5.0
         - 2.6.0-preview.2
@@ -91,9 +95,13 @@ m_PackageAssets:
         - 2.6.2
         - 2.6.3-preview.2
         - 2.6.3
+        - 2.6.4
         - 2.7.1
         - 2.7.2
-        verified: 2.6.3
+        - 2.7.3
+        - 2.8.0-exp.1
+        - 2.8.0-exp.2
+        verified: 2.6.4
       dependencies: []
       resolvedDependencies: []
       keywords:
@@ -279,6 +287,7 @@ m_PackageAssets:
         - 3.0.3
         - 3.0.4
         - 3.0.5
+        - 3.0.6
         compatible:
         - 1.0.2
         - 1.0.6
@@ -303,6 +312,7 @@ m_PackageAssets:
         - 3.0.3
         - 3.0.4
         - 3.0.5
+        - 3.0.6
         verified: 2.0.7
       dependencies:
       - name: com.unity.test-framework
@@ -581,6 +591,7 @@ m_PackageAssets:
         - 7.5.1
         - 7.5.2
         - 7.5.3
+        - 7.6.0
         - 8.0.1
         - 8.1.0
         - 8.2.0
@@ -818,6 +829,8 @@ m_PackageAssets:
         - 1.5.1
         - 1.5.3
         - 1.5.4
+        - 1.5.5
+        - 1.5.6
         - 2.0.0
         - 2.0.1-preview.1
         - 2.0.1
@@ -837,6 +850,8 @@ m_PackageAssets:
         - 2.1.1
         - 2.1.3
         - 2.1.4
+        - 2.1.5
+        - 2.1.6
         - 3.0.0-preview.1
         - 3.0.0-preview.3
         - 3.0.0-preview.4
@@ -852,11 +867,15 @@ m_PackageAssets:
         - 3.0.1
         - 3.0.3
         - 3.0.4
+        - 3.0.5
+        - 3.0.6
         compatible:
         - 3.0.1
         - 3.0.3
         - 3.0.4
-        verified: 3.0.4
+        - 3.0.5
+        - 3.0.6
+        verified: 3.0.6
       dependencies:
       - name: com.unity.ugui
         version: 1.0.0
@@ -2994,6 +3013,7 @@ m_PackageAssets:
         - 7.5.1
         - 7.5.2
         - 7.5.3
+        - 7.6.0
         - 8.0.1
         - 8.1.0
         - 8.2.0
@@ -3139,6 +3159,7 @@ m_PackageAssets:
         - 7.5.1
         - 7.5.2
         - 7.5.3
+        - 7.6.0
         - 8.0.1
         - 8.1.0
         - 8.2.0
@@ -3259,6 +3280,7 @@ m_PackageAssets:
         - 7.5.1
         - 7.5.2
         - 7.5.3
+        - 7.6.0
         - 8.0.1
         - 8.1.0
         - 8.2.0
@@ -3358,6 +3380,7 @@ m_PackageAssets:
         - 7.5.1
         - 7.5.2
         - 7.5.3
+        - 7.6.0
         - 8.0.1
         - 8.1.0
         - 8.2.0
@@ -3373,8 +3396,10 @@ m_PackageAssets:
         - 10.2.2
         - 10.3.1
         - 10.3.2
+        - 10.4.0
         compatible:
         - 10.3.2
+        - 10.4.0
         verified: 10.3.2
       dependencies:
       - name: com.unity.render-pipelines.core
@@ -3401,12 +3426,12 @@ m_PackageAssets:
       entitlements:
         isAllowed: 1
       isAssetStorePackage: 0
-      datePublishedTicks: 0
+      datePublishedTicks: 637502286890000000
       documentationUrl: 
       hasRepository: 1
       repository:
         type: git
-        url: https://github.com/Unity-Technologies/Graphics.git
+        url: git+https://github.com/Unity-Technologies/Graphics.git
         revision: 1342255ea41f4ab7910113c8dc207aecdfd4cf8e
         path: 
     - packageId: com.unity.searcher@4.3.1
@@ -3441,6 +3466,7 @@ m_PackageAssets:
         - 4.2.0
         - 4.3.0
         - 4.3.1
+        - 4.3.2
         - 4.6.0-preview
         - 4.7.0-preview
         compatible:
@@ -3455,9 +3481,10 @@ m_PackageAssets:
         - 4.2.0
         - 4.3.0
         - 4.3.1
+        - 4.3.2
         - 4.6.0-preview
         - 4.7.0-preview
-        verified: 4.3.1
+        verified: 4.3.2
       dependencies: []
       resolvedDependencies: []
       keywords:
