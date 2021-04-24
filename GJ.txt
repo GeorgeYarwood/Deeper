@@ -1,0 +1,52 @@
+Ludum Dare
+----------
+
+Theme: Deeper and deeper
+
+Ideas
+-----
+
+1. You have to go deeper and deeper into a cave. You have a lantern that keeps running out and must be kept alight or you fail the game
+
+	
+	
+	
+	
+	
+
+	
+	
+	
+	//Must implement
+	. Main mechanic to keep lantern alight, when light dies, you die.
+	. You must loot dead explorers to find lamp oil to keep your lantern running
+	. At the end of each segment is a rople/ladder that decends down into the next area. Next area is selected randomly from pre-made prefabs
+	
+	//Possibly implement
+	. Puzzles to proceed to next area 
+	. Enemies
+	
+	
+	//To do list
+	
+	. Lantern model - DONE
+	. Base cave model - 
+	. Create ~3 varitations or base cave and put into prefabs -
+	. Create Skeleton/dead adventurer model - 
+	
+	//MODELLING COMPLETE BY 7PM SATURDAY
+	
+	. Code light system -
+    . Code loot system (Light val increases when looking at dead adventurer) - 
+	. Code player death/respawn system -
+	. Code next cave segment system -
+	. Improve UI -
+	. Create main menu -
+	. Bug fixes - 
+	. Music/Sfx - 
+	. Add extras if time
+	
+
+	
+	
+	
