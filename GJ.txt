@@ -30,9 +30,10 @@ Ideas
 	//To do list
 	
 	. Lantern model - DONE
-	. Base cave model - 
+	. Base cave model - DONE
 	. Create ~3 varitations or base cave and put into prefabs -
 	. Create Skeleton/dead adventurer model - 
+	. Create hand model
 	
 	//MODELLING COMPLETE BY 7PM SATURDAY
 	
