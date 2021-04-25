@@ -95,7 +95,7 @@ public class GameManager : MonoBehaviour
     public void Respawn()
     {
         //Reset player to start position and load new cave
-        CaveLoader.loadNext = true;
+        CaveLoader.respawn = true;
         
 
         //Reset light

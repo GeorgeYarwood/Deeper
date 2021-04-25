@@ -5,7 +5,7 @@ using UnityEngine;
 public class CaveLoader : MonoBehaviour
 {
     //Array of caves we randomly select and load
-    public GameObject[] caves = new GameObject[5];
+    public GameObject[] caves = new GameObject[9];
 
     //The current cave we have loaded in
     public static GameObject currentCave;
@@ -13,6 +13,7 @@ public class CaveLoader : MonoBehaviour
     public Transform caveSpawn;
 
     public static bool loadNext;
+    public static bool respawn;
 
     public string scr;
   
@@ -39,13 +40,19 @@ public class CaveLoader : MonoBehaviour
         
         int selection = Random.Range(1, caves.Length);
 
-        //Try again if we select the same value as last time
+        //Select a different one from last time
         if(selection == lastval)
         {
-            NextCave();
+            if(selection == caves.Length) 
+            {
+                selection -= 1;
+            }
+            else 
+            {
+                selection += 1;
+            }
         }
-        else 
-        {
+
             //Destroy old cave
             Destroy(currentCave);
             //Spawn new one
@@ -57,7 +64,7 @@ public class CaveLoader : MonoBehaviour
             LightSystem.updateVal = true;
 
             lastval = selection;
-        }
+        
 
         
 
@@ -92,5 +99,18 @@ public class CaveLoader : MonoBehaviour
             NextCave();
             loadNext = false;
         }
+
+        if (respawn) 
+        {
+            //Destroy old cave
+            Destroy(currentCave);
+
+
+            //Load fist cave
+            currentCave = Instantiate(caves[0], caveSpawn.position, Quaternion.identity);
+            PlayerSpawn();
+            respawn = false;
+        }
+
     }
 }
