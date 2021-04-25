@@ -50,7 +50,7 @@ public class LightSystem : MonoBehaviour
 
             //Update the status bar
             lightBar.value = currentLight;
-            currentLight -= 50 * Time.deltaTime;
+            currentLight -= 35 * Time.deltaTime;
         }
         else if(currentLight <= 0)
         {

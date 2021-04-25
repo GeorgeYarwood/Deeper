@@ -13,6 +13,8 @@ public class CaveExit : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         CaveLoader.loadNext = true;
+        //Add score
+        GameManager.score += 1;
     }
 
     // Update is called once per frame

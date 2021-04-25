@@ -41,11 +41,11 @@ Ideas
 	.Code Game manager - DONE		
 	.Code light system - DONE
     .Code cave loading system - DONE
-	. Create ~3 varitations or base cave and put into prefabs - ~~
-    . Code loot system (Light val increases when looking at dead adventurer) - (Almost) DONE
-	. Code player death/respawn system -
-	. Improve UI -
-	. Create main menu -
+	. Create ~3 varitations or base cave and put into prefabs - DONE
+    . Code loot system (Light val increases when looking at dead adventurer) - DONE
+	. Code player death/respawn system - DONE
+	. Improve UI - ~~
+	. Create main menu - 
 	. Bug fixes - 
 	. Music/Sfx - 
 	. Add extras if time

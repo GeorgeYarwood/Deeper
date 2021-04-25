@@ -8,14 +8,13 @@ public class CaveLoader : MonoBehaviour
     public GameObject[] caves = new GameObject[3];
 
     //The current cave we have loaded in
-    public GameObject currentCave;
+    public static GameObject currentCave;
 
     public Transform caveSpawn;
 
     public static bool loadNext;
 
     public string scr;
-    // Start is called before the first frame update
   
 
     void Awake()
@@ -23,7 +22,7 @@ public class CaveLoader : MonoBehaviour
         //Get player
         GameManager.Player = GameObject.FindGameObjectWithTag("Player");
         //Start by spawning in a cave
-        currentCave = Instantiate(caves[Random.Range(0, 2)], caveSpawn.position, Quaternion.identity);
+        currentCave = Instantiate(caves[Random.Range(0, 3)], caveSpawn.position, Quaternion.identity);
         PlayerSpawn();
 
     }
@@ -33,9 +32,11 @@ public class CaveLoader : MonoBehaviour
         //Destroy old cave
         Destroy(currentCave);
         //Spawn new one
-        currentCave = Instantiate(caves[Random.Range(0, 2)], caveSpawn.position, Quaternion.identity);
+        currentCave = Instantiate(caves[Random.Range(0, 3)], caveSpawn.position, Quaternion.identity);
         PlayerSpawn();
 
+
+        
     }
 
 
@@ -53,7 +54,7 @@ public class CaveLoader : MonoBehaviour
 
     IEnumerator wait() 
     {
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.4f);
         //Enable again
         (GameManager.Player.GetComponent(scr) as MonoBehaviour).enabled = true;
     }
