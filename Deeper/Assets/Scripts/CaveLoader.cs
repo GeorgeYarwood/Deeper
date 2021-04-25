@@ -5,7 +5,7 @@ using UnityEngine;
 public class CaveLoader : MonoBehaviour
 {
     //Array of caves we randomly select and load
-    public GameObject[] caves = new GameObject[3];
+    public GameObject[] caves = new GameObject[5];
 
     //The current cave we have loaded in
     public static GameObject currentCave;
@@ -16,27 +16,52 @@ public class CaveLoader : MonoBehaviour
 
     public string scr;
   
+    int lastval;
 
     void Awake()
     {
         //Get player
         GameManager.Player = GameObject.FindGameObjectWithTag("Player");
         //Start by spawning in a cave
-        currentCave = Instantiate(caves[Random.Range(0, 3)], caveSpawn.position, Quaternion.identity);
+
+
+
+
+        //Load fist cave
+        currentCave = Instantiate(caves[0], caveSpawn.position, Quaternion.identity);
         PlayerSpawn();
+  
 
     }
 
     public void NextCave() 
     {
-        //Destroy old cave
-        Destroy(currentCave);
-        //Spawn new one
-        currentCave = Instantiate(caves[Random.Range(0, 3)], caveSpawn.position, Quaternion.identity);
-        PlayerSpawn();
+        
+        int selection = Random.Range(1, caves.Length);
 
+        //Try again if we select the same value as last time
+        if(selection == lastval)
+        {
+            NextCave();
+        }
+        else 
+        {
+            //Destroy old cave
+            Destroy(currentCave);
+            //Spawn new one
+            currentCave = Instantiate(caves[selection], caveSpawn.position, Quaternion.identity);
+            PlayerSpawn();
+
+            //Give a little bit of light back
+            LightSystem.currentLight += 20;
+            LightSystem.updateVal = true;
+
+            lastval = selection;
+        }
 
         
+
+
     }
 
 

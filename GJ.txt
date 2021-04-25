@@ -44,10 +44,13 @@ Ideas
 	. Create ~3 varitations or base cave and put into prefabs - DONE
     . Code loot system (Light val increases when looking at dead adventurer) - DONE
 	. Code player death/respawn system - DONE
-	. Improve UI - ~~
-	. Create main menu - 
+	. Improve UI - DONE
+	. Create main menu - DONE
 	. Bug fixes - 
-	. Music/Sfx - 
+		Known bugs:
+			Score counter adds one two many sometimes (Semi fixed)
+			Animations sometimes glitchy (Maybe fixed)
+	. Music/Sfx - DONE
 	. Add extras if time
 	
 

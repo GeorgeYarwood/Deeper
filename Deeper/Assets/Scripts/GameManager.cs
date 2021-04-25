@@ -36,6 +36,17 @@ public class GameManager : MonoBehaviour
     //Last gameobject seen
     public GameObject lastobj;
 
+    //Audio for sfx
+    public AudioSource sfx;
+
+    public AudioClip[] clips = new AudioClip[7];
+
+    //Tutorial go
+    public GameObject tutorial;
+
+    //Pause menu
+    public GameObject pauseMenu;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -83,14 +94,17 @@ public class GameManager : MonoBehaviour
 
     public void Respawn()
     {
-        //Reset player to start position
-        //Spawn player at start of cave
-        GameManager.Player.transform.position = CaveLoader.currentCave.GetComponentInChildren<CaveSpawn>().transform.position;
+        //Reset player to start position and load new cave
+        CaveLoader.loadNext = true;
+        
 
         //Reset light
         LightSystem.currentLight = LightSystem.baseLight;
         //Update bar
         LightSystem.updateVal = true;
+        //Reset score
+        score = 0;
+
         //Re enable fps controller
         (Player.GetComponent("FirstPersonController") as MonoBehaviour).enabled = true;
         respawnMenu.SetActive(false);
@@ -113,22 +127,39 @@ public class GameManager : MonoBehaviour
     }
 
 
+    public void FreeCursor() 
+    {
+        //Re enable fps controller
+        (Player.GetComponent("FirstPersonController") as MonoBehaviour).enabled = true;
+        Cursor.lockState = CursorLockMode.Locked;
+
+    }
+
+    public void LoadMenu() 
+    {
+        SceneManager.LoadScene(0);
+    }
+
     // Update is called once per frame
     void Update()
     {
 
-        //Update score
+        //Update score 
         scoreTxt.text = score.ToString();
 
         //if we are not in the middle of a movement
         if (!anim.GetCurrentAnimatorStateInfo(0).IsTag("moving")) 
         {
-            if (ObjVelocity.y > 0.07)
+            if (ObjVelocity.y > 0.05)
             {
                 anim.SetTrigger("Right");
+                sfx.clip = clips[Random.Range(0,clips.Length)];
+                sfx.Play();
             }
-            else if (ObjVelocity.y < -0.07)
+            else if (ObjVelocity.y < -0.05)
             {
+                sfx.clip = clips[Random.Range(0, clips.Length)];
+                sfx.Play();
                 anim.SetTrigger("Left");
 
             }
@@ -143,18 +174,40 @@ public class GameManager : MonoBehaviour
             Die();
         }
 
-        if (Input.GetMouseButtonDown(0) && !dead)
+        if (Input.GetKey(KeyCode.Escape)) 
+        {   
+            //Show pause menu and unlock cursor
+            pauseMenu.SetActive(true);
+
+            //Re enable fps controller
+            (Player.GetComponent("FirstPersonController") as MonoBehaviour).enabled = false;
+            Cursor.lockState = CursorLockMode.None;
+
+
+
+
+        }
+
+        if (Input.GetMouseButtonDown(0) && !dead && !pauseMenu.activeInHierarchy)
         {
+            if (tutorial.activeInHierarchy) 
+            {
+                tutorial.SetActive(false);
+            }
+
             LightSystem.lanternUp = true;
             lightobj.gameObject.SetActive(true);
             fireImg.SetActive(true);
 
+            sfx.clip = clips[Random.Range(0, clips.Length)];
+            sfx.Play();
             anim.SetTrigger("Up");
-        }
-        if (Input.GetMouseButtonUp(0) && LightSystem.lanternUp && !dead)
+      }
+        if (Input.GetMouseButtonUp(0) && LightSystem.lanternUp && !dead && !pauseMenu.activeInHierarchy)
         {
             LightSystem.lanternUp = false;
-
+            sfx.clip = clips[Random.Range(0, clips.Length)];
+            sfx.Play();
             lightobj.gameObject.SetActive(false);
             fireImg.SetActive(false);
 
@@ -183,6 +236,12 @@ public class GameManager : MonoBehaviour
 
                 //Delete model
                 Destroy(hit.transform.gameObject);
+
+                //Cap at max value
+                if(LightSystem.currentLight > LightSystem.baseLight)
+                {
+                    LightSystem.currentLight = LightSystem.baseLight;
+                }
             }
 
         }
