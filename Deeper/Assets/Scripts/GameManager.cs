@@ -101,8 +101,14 @@ public class GameManager : MonoBehaviour
 
         savedScore = score;
 
-        //Save score
-        SaveSystem.SaveScore();
+        //If we got a high score
+        if(score > SaveSystem.ReadScore()) 
+        {
+            //Save score
+            SaveSystem.SaveScore();
+        }
+
+      
     }
 
     public void Respawn()
@@ -137,6 +143,15 @@ public class GameManager : MonoBehaviour
 
     public void Exit()
     {
+        savedScore = score;
+
+        //If we got a high score
+        if (score > SaveSystem.ReadScore())
+        {
+            //Save score
+            SaveSystem.SaveScore();
+        }
+
         //Application.Quit();
         SceneManager.LoadScene(0);
     }

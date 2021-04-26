@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -18,6 +19,10 @@ public class LightSystem : MonoBehaviour
 
 
     public static bool updateVal;
+
+    public int drainrate;
+
+    public GameObject infImg;
     
 
     // Start is called before the first frame update
@@ -27,6 +32,15 @@ public class LightSystem : MonoBehaviour
 
         lightBar.value = currentLight;
 
+        LightSystem loadedLightSys = new LightSystem();
+        JsonUtility.FromJsonOverwrite(File.ReadAllText(Application.persistentDataPath + "/lightsys"), loadedLightSys);
+
+        drainrate = loadedLightSys.drainrate;
+
+        if(drainrate == 0) 
+        {
+            infImg.SetActive(true);
+        }
     }
 
 
@@ -50,7 +64,7 @@ public class LightSystem : MonoBehaviour
 
             //Update the status bar
             lightBar.value = currentLight;
-            currentLight -= 20 * Time.deltaTime;
+            currentLight -= drainrate * Time.deltaTime;
         }
         else if(currentLight <= 0)
         {

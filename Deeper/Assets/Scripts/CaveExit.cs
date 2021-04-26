@@ -15,13 +15,22 @@ public class CaveExit : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (!canRegister && other.tag == "Player")
+        if (!canRegister && other.tag == "Player" )
         {
             canRegister = true;
             CaveLoader.loadNext = true;
             //Add score
             GameManager.score += 1;
             StartCoroutine(wait());
+
+            //Give a little bit of light back
+            LightSystem.currentLight += 20;
+
+            if(LightSystem.currentLight > 500f) 
+            {
+                LightSystem.currentLight = 500f;
+            }
+            LightSystem.updateVal = true;
         }
      
 

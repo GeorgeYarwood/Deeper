@@ -59,9 +59,7 @@ public class CaveLoader : MonoBehaviour
             currentCave = Instantiate(caves[selection], caveSpawn.position, Quaternion.identity);
             PlayerSpawn();
 
-            //Give a little bit of light back
-            LightSystem.currentLight += 20;
-            LightSystem.updateVal = true;
+           
 
             lastval = selection;
         

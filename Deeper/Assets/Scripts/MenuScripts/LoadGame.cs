@@ -16,6 +16,39 @@ public class LoadGame : MonoBehaviour
         SceneManager.LoadScene(1);
     }
 
+    public void HardDiff() 
+    {
+        LightSystem lightsys = new LightSystem();
+        lightsys.drainrate = 25;
+        string convertedData = JsonUtility.ToJson(lightsys);
+        System.IO.File.WriteAllText(Application.persistentDataPath + "/" + "lightsys", convertedData);
+        SceneManager.LoadScene(1);
+
+
+
+    }
+
+    public void EasyDiff()
+    {
+        LightSystem lightsys = new LightSystem();
+        lightsys.drainrate = 10;
+        string convertedData = JsonUtility.ToJson(lightsys);
+        System.IO.File.WriteAllText(Application.persistentDataPath + "/" + "lightsys", convertedData);
+        SceneManager.LoadScene(1);
+
+    }
+
+    public void ExplorerDiff()
+    {
+        LightSystem lightsys = new LightSystem();
+        lightsys.drainrate = 0;
+        string convertedData = JsonUtility.ToJson(lightsys);
+        System.IO.File.WriteAllText(Application.persistentDataPath + "/" + "lightsys", convertedData);
+        SceneManager.LoadScene(1);
+
+    }
+
+
     // Update is called once per frame
     void Update()
     {
