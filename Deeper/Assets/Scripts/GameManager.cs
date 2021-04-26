@@ -4,6 +4,9 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+
+
+
 public class GameManager : MonoBehaviour
 {
     //If we ded
@@ -46,6 +49,9 @@ public class GameManager : MonoBehaviour
 
     //Pause menu
     public GameObject pauseMenu;
+
+    [SerializeField]
+    public int savedScore;
 
     // Start is called before the first frame update
     void Start()
@@ -90,6 +96,13 @@ public class GameManager : MonoBehaviour
 
         //Unlock cursor
         Cursor.lockState = CursorLockMode.None;
+
+        Cursor.visible = true;
+
+        savedScore = score;
+
+        //Save score
+        SaveSystem.SaveScore();
     }
 
     public void Respawn()
@@ -117,6 +130,8 @@ public class GameManager : MonoBehaviour
         anim.SetTrigger("Up");
         //Relock cursor
         Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+
         dead = false;
     }
 
@@ -132,6 +147,8 @@ public class GameManager : MonoBehaviour
         //Re enable fps controller
         (Player.GetComponent("FirstPersonController") as MonoBehaviour).enabled = true;
         Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+
 
     }
 
@@ -183,6 +200,7 @@ public class GameManager : MonoBehaviour
             (Player.GetComponent("FirstPersonController") as MonoBehaviour).enabled = false;
             Cursor.lockState = CursorLockMode.None;
 
+            Cursor.visible = true;
 
 
 
